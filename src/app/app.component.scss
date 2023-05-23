@@ -1,0 +1,42 @@
+.fire-ring {
+
+    position: relative;
+
+    .fire {
+        width: 1000px;
+        height: 600px;
+    }
+
+    .hearts1 , .hearts2 , .hearts3 , .hearts4 {
+        position: absolute;
+        z-index: 0;
+        bottom: 300px;
+        left: 440px;
+        width: 60px;
+        height: 100px;
+        transform: rotate(-15deg);
+    }
+    .hearts2 {
+        bottom: 305px;
+        left: 470px;
+        width: 60px;
+        height: 100px;
+        transform: rotate(-5deg);
+    }
+    .hearts3 {
+        z-index: 1;
+        bottom: 305px;
+        left: 500px;
+        width: 60px;
+        height: 100px;
+        transform: rotate(0deg);
+    }
+    .hearts4 {
+        z-index: 2;
+        bottom: 300px;
+        left: 530px;
+        width: 60px;
+        height: 100px;
+        transform: rotate(10deg);
+    }
+}
