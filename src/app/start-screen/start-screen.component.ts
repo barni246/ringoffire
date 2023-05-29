@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class StartScreenComponent {
 
+
 constructor(private router: Router) {
 
 }
