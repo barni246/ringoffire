@@ -34,13 +34,21 @@ export class GameComponent implements OnInit {
 
   takeCard() {
 
-    if (!this.pickCardAnimation) {
+    if(this.game.players.length == 0) {
+      this.openDialog();
+    }
+
+    if (!this.pickCardAnimation && this.game.players.length > 0) {
       this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
+
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+
       setTimeout(() => {
-       // if (this.currentCard) {
+        if (this.currentCard) {
           this.game.playedCards.push(this.currentCard);
-      //  }
+        }
         this.pickCardAnimation = false;
       }, 1000);
     }
@@ -52,7 +60,10 @@ openDialog(): void {
   const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
   dialogRef.afterClosed().subscribe((name: string )=> {
-    this.game.players.push(name);
+    if(name && name.length > 0) {
+       this.game.players.push(name);
+    }
+   
   });
 }
 }

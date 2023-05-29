@@ -1,12 +1,8 @@
-<mat-card class="mat-card">
-    <mat-card-title class="mat-card-title">{{title}}</mat-card-title>
+<mat-card class="mat-card" [class.color-black]="card">
+    <mat-card-title>{{card ? title: 'Please pick a card.'}}</mat-card-title>
 
     <mat-card-content>
-        {{description}}
+        {{card ? description: 'Please click on the stack to select the next card.'}}
     </mat-card-content>
-
-
-
-
 
 </mat-card>
