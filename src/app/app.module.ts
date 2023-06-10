@@ -19,7 +19,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+//import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+//import { provideFirestore, getFirestore,AngularFirestoreModule } from '@angular/fire/firestore';
+import { provideFirestore, getFirestore} from '@angular/fire/firestore';
 
 
 
@@ -29,6 +31,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
+   
     StartScreenComponent,
     GameComponent,
     PlayerComponent,
@@ -37,6 +40,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    //AngularFirestoreModule;
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,

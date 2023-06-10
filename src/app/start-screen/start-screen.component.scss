@@ -9,24 +9,57 @@
 
     img {
         height: 100vh;
+        width: 100vw;
+        object-fit: cover;
     }
 }
 
 .start-label-box {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 45%;
+   
     display: flex;
     justify-content: center;
-    bottom: 50px;
+    bottom: 120px;
 
     img {
-        width: 30vw;
+        width: 13vw;
         height: auto;
         cursor: pointer;
+        animation: turn-around 3s infinite;
 
         &:hover {
             filter: brightness(1.25);
         }
+    }
+}
+
+
+.start-button {
+    width: 400px;
+    height: 10px;
+    font-size: 55px;
+    cursor: pointer;
+    transition: all 255ms ease-in-out;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    &:hover {
+        scale: 1.25;
+        transition: all 255ms ease-in-out;
+        font-weight: bolder;
+        color: rgb(100, 7, 7);
+        filter: brightness(1.55);
+    }
+}
+
+
+@keyframes turn-around {
+    from {
+transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
     }
 }

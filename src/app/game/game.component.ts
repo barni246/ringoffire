@@ -28,7 +28,9 @@ export class GameComponent implements OnInit {
 
  //constructor(private firestore: AngularFirestore, public dialog: MatDialog) {
 
-  constructor( private angFirestore: AngularFirestore, public dialog: MatDialog) {}
+ //private angFirestore: AngularFirestore,
+
+  constructor(private angFirestore: AngularFirestore, public dialog: MatDialog) {}
 
    ngOnInit() {
     this.newGame();
@@ -38,7 +40,7 @@ export class GameComponent implements OnInit {
  
      this.angFirestore.collection('games').valueChanges().subscribe((game) => {
       console.log('Game update',game);
-     })
+    })
    
    
   }

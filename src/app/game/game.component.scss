@@ -2,11 +2,14 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    background-image: url('/assets/img/board.jpg');
-    filter: brightness(1.8);
+    background-image: url('/assets/img/board2.jpg');
+    background-position: left center;
+    background-size: cover;
+    filter: brightness(0.9);
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    
 }
 
 .card-stack {
@@ -14,7 +17,9 @@
 
     img {
         position: absolute;
-        width: 120px;
+        width: 130px;
+        margin-right: 550px;
+        
     }
 }
 
