@@ -6,6 +6,20 @@
           "bgringoffire"
         ]
       }
+    },
+    "barnidb": {
+      "hosting": {
+        "ringoffire": [
+          "barnidb"
+        ]
+      }
+    },
+    "bgtodolist": {
+      "hosting": {
+        "ringoffire": [
+          "bgtodolist"
+        ]
+      }
     }
   },
   "projects": {
