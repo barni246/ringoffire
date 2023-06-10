@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bgringoffire": {
+      "hosting": {
+        "ringoffire": [
+          "bgringoffire"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bgringoffire"
+  }
+}
