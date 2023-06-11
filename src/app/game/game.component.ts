@@ -3,11 +3,7 @@ import { Game } from 'src/models/game';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { inject } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Firestore, collectionData, collection, setDoc,doc } from '@angular/fire/firestore';
-import {  getDoc } from "firebase/firestore";
-import {Auth, sendPasswordResetEmail, signOut} from '@angular/fire/auth';
 
 
 
@@ -27,21 +23,10 @@ export class GameComponent implements OnInit {
   firest: Firestore;
   
  
-//  firestore: Firestore;
-//   items: any;
- 
-//angFirestore: AngularFirestore = inject(AngularFirestore);
-
- //constructor(private firestore: AngularFirestore, public dialog: MatDialog) {
-
- //angFirestore: AngularFirestore;
-
-  constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
+constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
 
 
-  
-
-   ngOnInit() {
+  ngOnInit() {
     this.newGame();
    
     //const coll = collection(this.firestore, 'games'); // Sammlung ansprechen

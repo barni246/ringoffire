@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    background-image: url('/assets/img/board2.jpg');
+    background-image: url('../../assets/img/board2.jpg');
     background-position: left center;
     background-size: cover;
     filter: brightness(0.9);
@@ -78,13 +78,15 @@
     height: 80px;
 }
 
-.pin-bottom {
-    position: absolute;
-    bottom: 32px;
-    left: 100px;
-    right: 150px;
-}
 
+ .pin-bottom {
+    position: absolute;
+    //  bottom: 32px;
+    //  left: 100px;
+    //  right: 150px;
+    top: 450px;
+    left: 80px;
+ }
  
   
    

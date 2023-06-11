@@ -1,0 +1,22 @@
+.dialog-container {
+    background-color: rgb(132, 130, 130) !important;
+    border: 5px solid rgb(180, 3, 3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.mat-mdc-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+
+}
+.mat-mdc-card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
