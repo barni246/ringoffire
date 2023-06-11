@@ -1,3 +1,5 @@
+$shadow-color: rgb(122, 4, 4);
+
 .start-screen {
     background-color: #404040;
     width: 100vw;
@@ -17,7 +19,7 @@
 .start-label-box {
     position: absolute;
     left: 45%;
-   
+
     display: flex;
     justify-content: center;
     bottom: 120px;
@@ -40,23 +42,25 @@
     height: 10px;
     font-size: 55px;
     cursor: pointer;
-    transition: all 255ms ease-in-out;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition: all 400ms ease-in-out;
+    color: rgb(183, 182, 182);
+    text-shadow: -1px -1px 0 $shadow-color, 1px -1px 0 $shadow-color, -1px 1px 0 $shadow-color, 1px 1px 0 $shadow-color;
+    font-weight: bolder;
 
     &:hover {
-        scale: 1.25;
-        transition: all 255ms ease-in-out;
-        font-weight: bolder;
+        scale: 1.3;
+        transition: all 400ms ease-in-out;
+
         color: rgb(100, 7, 7);
         filter: brightness(1.55);
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
 }
 
 
 @keyframes turn-around {
     from {
-transform: rotateX(0deg);
+        transform: rotateX(0deg);
     }
 
     to {

@@ -6,6 +6,10 @@ import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/compat/
 import { inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Firestore, collectionData, collection, setDoc,doc } from '@angular/fire/firestore';
+import {  getDoc } from "firebase/firestore";
+import {Auth, sendPasswordResetEmail, signOut} from '@angular/fire/auth';
+
+
 
 
 
@@ -20,7 +24,9 @@ export class GameComponent implements OnInit {
  // currentCard: string | undefined = '';
   currentCard: string  = '';
   game: Game;
+  firest: Firestore;
   
+ 
 //  firestore: Firestore;
 //   items: any;
  
@@ -28,19 +34,23 @@ export class GameComponent implements OnInit {
 
  //constructor(private firestore: AngularFirestore, public dialog: MatDialog) {
 
- //private angFirestore: AngularFirestore,
+ //angFirestore: AngularFirestore;
 
-  constructor(private angFirestore: AngularFirestore, public dialog: MatDialog) {}
+  constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
+
+
+  
 
    ngOnInit() {
     this.newGame();
+   
     //const coll = collection(this.firestore, 'games'); // Sammlung ansprechen
    // setDoc(doc(coll), {game:""});                // hier kann ich in der Datenbank speichern
   
  
-     this.angFirestore.collection('games').valueChanges().subscribe((game) => {
-      console.log('Game update',game);
-    })
+     this.firestore.collection('games').valueChanges().subscribe((game) => {
+    console.log('Game update',game);
+   })
    
    
   }

@@ -14,17 +14,24 @@
 
 .card-stack {
     position: relative;
-
     img {
+        cursor: pointer;
         position: absolute;
         width: 130px;
-        margin-right: 550px;
+        height: 220px;
+        margin-right: 35vw;
+        border: 2px solid rgb(181, 66, 66);
+        border-radius: 10px;
+        filter: contrast(10);
         
     }
 }
 
 .top-card {
-    cursor: pointer;
+   
+    border: 2px solid rgb(181, 66, 66);
+    border-radius: 10px;
+    filter: contrast(10);
     transition: all 125ms ease-in-out;
     &:hover {
         transform: scale(1.1) translateY(-10px);
@@ -76,4 +83,26 @@
     bottom: 32px;
     left: 100px;
     right: 150px;
+}
+
+ 
+  
+   
+   .btn-add {
+    background-color: rgb(189, 13, 13);
+    color: black;
+    transition: all 225ms ease-in-out;
+    &:hover {
+     filter: brightness(1.3);
+     transition: all 225ms ease-in-out;
+     scale: 1.1;
+    }
+}
+
+.mat-icon {
+   
+    scale: 1.6;
+    &:hover {
+        scale: 1.8;
+    }
 }
