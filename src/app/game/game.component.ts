@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
  // currentCard: string | undefined = '';
   currentCard: string  = '';
   game: Game;
-  firest: Firestore;
+  //firest: Firestore;
   
  
 constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
@@ -44,7 +44,7 @@ constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
 
   newGame() {
     this.game  = new Game();
-    console.log('game array',this.game);
+    this.firestore.collection('games').add(this.game.toJson());
   }
 
 
