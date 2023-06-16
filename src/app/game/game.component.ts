@@ -34,7 +34,7 @@ export class GameComponent implements OnInit {
     this.route.params.subscribe((params) => {
       console.log('params', params);
 
-      this.gameId = params['id'];
+      this.gameId = 'P1j0fyC9B9ZkKTPHCA6w';
       
       this.firestore.collection('games')
         .doc(this.gameId)
@@ -52,7 +52,7 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    this.firestore.collection('games').add(this.game.toJson());
+   // this.firestore.collection('games').add(this.game.toJson());
   }
 
 
