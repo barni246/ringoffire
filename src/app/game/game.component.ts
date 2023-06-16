@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Firestore, collectionData, collection, setDoc,doc } from '@angular/fire/firestore';
 
 
 
@@ -21,36 +20,30 @@ export class GameComponent implements OnInit {
   // currentCard: string | undefined = '';
   currentCard: string = '';
   game: Game;
-  gameId: string;
+  //firest: Firestore;
+  
+ 
+constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
 
-  constructor(private route: ActivatedRoute,
-    private firestore: AngularFirestore,
-    public dialog: MatDialog) { }
 
-
-  ngOnInit() {
+  async ngOnInit() {
     this.newGame();
-    this.route.params.subscribe((params) => {
-      console.log('params', params);
-
-      this.gameId = params['id'];
-      
-      this.firestore.collection('games')
-        .doc(this.gameId)
-        .valueChanges()
-        .subscribe((game) => {
-          console.log('Game update', game);
-        })
-
-    });
+   
     //const coll = collection(this.firestore, 'games'); // Sammlung ansprechen
-    // setDoc(doc(coll), {game:""});                // hier kann ich in der Datenbank speichern
-}
+   // setDoc(doc(coll), {game:""});                // hier kann ich in der Datenbank speichern
+  
+ 
+     this.firestore.collection('games').valueChanges().subscribe((game) => {
+    console.log('Game update',game);
+   })
+   
+   
+  }
 
 
 
   newGame() {
-    this.game = new Game();
+    this.game  = new Game();
     this.firestore.collection('games').add(this.game.toJson());
   }
 
