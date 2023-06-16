@@ -6,6 +6,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 
@@ -37,10 +38,14 @@ export class GameComponent implements OnInit {
       this.gameId = 'P1j0fyC9B9ZkKTPHCA6w';
       
       this.firestore.collection('games')
-        .doc(this.gameId)
+        .doc(params['id'])
         .valueChanges()
-        .subscribe((game) => {
+        .subscribe((game: any) => {
           console.log('Game update', game);
+          this.game.currentPlayer = game.currentPlayer,
+          this.game.playedCards = game.playedCards,
+          this.game.players = game.players,
+          this.game.stack = game.stack
         })
 
     });
@@ -58,9 +63,9 @@ export class GameComponent implements OnInit {
 
   takeCard() {
 
-    if (this.game.players.length == 0) {
-      this.openDialog();
-    }
+     if (this.game.players.length == 0) {
+       this.openDialog();
+     }
 
     if (!this.pickCardAnimation && this.game.players.length > 0) {
       this.currentCard = this.game.stack.pop();
@@ -77,6 +82,28 @@ export class GameComponent implements OnInit {
       }, 1000);
     }
   }
+
+
+  // takeCard() {
+  //   if(this.game.stack.length == 0) {
+  //     this.gameOver = true;
+  //   } else if (!this.game.pickCardAnimation) {
+  //     this.game.currentCard = this.game.stack.pop();
+  //     this.game.pickCardAnimation = true;
+  //     console.log('New card: ' + this.game.currentCard);
+  //     console.log('Game is', this.game);
+  //     this.game.currentPlayer++;
+  //     this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+
+  //     this.saveGame();
+
+  //     setTimeout(() => {
+  //       this.game.playedCards.push(this.game.currentCard);
+  //       this.game.pickCardAnimation = false;
+  //       this.saveGame();
+  //     }, 1000);
+  //   }
+  // }
 
 
 
