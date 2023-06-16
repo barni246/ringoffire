@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Firestore, collectionData, collection, setDoc,doc } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -17,40 +18,46 @@ import { Firestore, collectionData, collection, setDoc,doc } from '@angular/fire
 })
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
- // currentCard: string | undefined = '';
-  currentCard: string  = '';
+  // currentCard: string | undefined = '';
+  currentCard: string = '';
   game: Game;
-  //firest: Firestore;
-  
- 
-constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
+  gameId: string;
+
+  constructor(private route: ActivatedRoute,
+    private firestore: AngularFirestore,
+    public dialog: MatDialog) { }
 
 
   ngOnInit() {
     this.newGame();
-   
-    //const coll = collection(this.firestore, 'games'); // Sammlung ansprechen
-   // setDoc(doc(coll), {game:""});                // hier kann ich in der Datenbank speichern
-  
- 
-     this.firestore.collection('games').valueChanges().subscribe((game) => {
-    console.log('Game update',game);
-   })
-   
-   
-  }
+    this.route.params.subscribe((params) => {
+      console.log('params', params);
 
-  
+      this.gameId = params['id'];
+      
+      this.firestore.collection('games')
+        .doc(this.gameId)
+        .valueChanges()
+        .subscribe((game) => {
+          console.log('Game update', game);
+        })
+
+    });
+    //const coll = collection(this.firestore, 'games'); // Sammlung ansprechen
+    // setDoc(doc(coll), {game:""});                // hier kann ich in der Datenbank speichern
+}
+
+
 
   newGame() {
-    this.game  = new Game();
+    this.game = new Game();
     this.firestore.collection('games').add(this.game.toJson());
   }
 
 
   takeCard() {
 
-    if(this.game.players.length == 0) {
+    if (this.game.players.length == 0) {
       this.openDialog();
     }
 
@@ -72,14 +79,14 @@ constructor(private firestore: AngularFirestore,public dialog: MatDialog) {}
 
 
 
-openDialog(): void {
-  const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-  dialogRef.afterClosed().subscribe((name: string )=> {
-    if(name && name.length > 0) {
-       this.game.players.push(name);
-    }
-   
-  });
-}
+    dialogRef.afterClosed().subscribe((name: string) => {
+      if (name && name.length > 0) {
+        this.game.players.push(name);
+      }
+
+    });
+  }
 }
