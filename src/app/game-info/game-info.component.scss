@@ -1,12 +1,10 @@
 $text-gray: rgba($color: #000000, $alpha: 0.5);
 
 .mat-card {
-    height: 300px;
-    width: 300px;
-    border-radius: 100%;
+    height: 50%;
+    border-radius: 20px;
     color: $text-gray;
-    bottom: 390px;
-    left: -30px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,3 +28,5 @@ $text-gray: rgba($color: #000000, $alpha: 0.5);
     background-color:black;
     color: red;
 }
+
+

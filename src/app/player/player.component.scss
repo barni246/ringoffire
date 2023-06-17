@@ -27,3 +27,31 @@
     background-color: rgb(183, 25, 25) !important;
     color: black;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .player {
+        width: 30%;
+        border-top-right-radius: 45px;
+        border-bottom-right-radius: 45px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+        
+        img {
+            border-radius: 100%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+    
+        span {
+            margin-right: 20px;
+            font-size: 25px;
+        }
+        
+    }
+}

@@ -2,37 +2,40 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    background-image: url('../../assets/img/board2.jpg');
-    background-position: left center;
-    background-size: cover;
-    filter: brightness(0.9);
+    // background-image: url('../../assets/img/board2.jpg');
+    // background-position: left center;
+    // background-size: cover;
+    // filter: brightness(0.9);
+    background-color: black;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    
+
 }
 
 .card-stack {
     position: relative;
+
     img {
         cursor: pointer;
         position: absolute;
         width: 130px;
         height: 220px;
-        margin-right: 35vw;
+        // margin-right: 35vw;
         border: 2px solid rgb(181, 66, 66);
         border-radius: 10px;
         filter: contrast(10);
-        
+
     }
 }
 
 .top-card {
-   
+
     border: 2px solid rgb(181, 66, 66);
     border-radius: 10px;
     filter: contrast(10);
     transition: all 125ms ease-in-out;
+
     &:hover {
         transform: scale(1.1) translateY(-10px);
     }
@@ -52,12 +55,15 @@
     0% {
         transform: scale(1);
     }
+
     40% {
         transform: scale(1.7);
     }
+
     60% {
         transform: scale(1.7);
     }
+
     100% {
         transform: scale(1.3) translateX(140px) translateY(-180px) rotate(-10deg);
     }
@@ -70,41 +76,74 @@
 }
 
 
-.btn-add {
+.pin-bottom {
     position: absolute;
-    right: 32px;
-    bottom: 32px;
-    width: 80px;
-    height: 80px;
+    bottom: 50px;
+    left: 50px;
+    right: 220px;
 }
 
 
- .pin-bottom {
-    position: absolute;
-    //  bottom: 32px;
-    //  left: 100px;
-    //  right: 150px;
-    top: 450px;
-    left: 80px;
- }
- 
-  
-   
-   .btn-add {
+.btn-add {
     background-color: rgb(189, 13, 13);
     color: black;
     transition: all 225ms ease-in-out;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    width: 120px;
+    height: 120px;
+
     &:hover {
-     filter: brightness(1.3);
-     transition: all 225ms ease-in-out;
-     scale: 1.1;
+        filter: brightness(1.3);
+        transition: all 225ms ease-in-out;
+        scale: 1.1;
     }
 }
 
 .mat-icon {
-   
+
     scale: 1.6;
+
     &:hover {
         scale: 1.8;
     }
+}
+
+@media screen and (max-width: 1000px) {
+    .player-position {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .card-stack {
+        position: relative;
+        bottom: 270px;
+
+        img {
+            width: 130px;
+            height: 220px;
+
+
+        }
+    }
+
+    .field {
+
+        align-items: flex-end;
+
+    }
+
+    .pin-bottom {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        left: 40%;
+        height: 70%;
+        padding: 10px;
+    }
+
+
 }
