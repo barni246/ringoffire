@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Game } from 'src/models/game';
 
@@ -16,9 +15,10 @@ constructor(private firestore: AngularFirestore,
 
 }
 
-
+@Input() redBorder: boolean = false;
 
   newGame() {
+    this.redBorder = true;
     let game = new Game();
     this.firestore.collection('games')
     .add(game.toJson())

@@ -1,17 +1,14 @@
 <div class="start-screen">
 
-<img src="assets/img/start-image.jpg">
-<div class="title">
-   <h1>Ring of <span>fire</span></h1>
-</div>
+    <div class="title">
+        <h1>Ring </h1>
+        <h1>of</h1>
+        <h1 [ngStyle]="{color: 'red'}">fire</h1>
+    </div>
 
-<div class="start-label-box">
-    <!-- <img (click)="newGame()" src="assets/img/startlabel.png"> -->
-    <div (click)="newGame()" class="start-button">
+    <div   [ngStyle]="{border: redBorder == true ? '10px solid red': '3px solid white' }"  (click)="newGame()" class="start-button">
         <span>Start Game</span>
     </div>
-    <!-- <img  src="assets/img/drink1.png"> -->
-</div>
 
 
 
