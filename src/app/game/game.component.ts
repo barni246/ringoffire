@@ -19,9 +19,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  pickCardAnimation = false;
-  // currentCard: string | undefined = '';
-  currentCard: string = '';
+  
   game: Game;
   gameId: string;
 
@@ -43,10 +41,12 @@ export class GameComponent implements OnInit {
         .valueChanges()
         .subscribe((game: any) => {
           console.log('Game update', game);
-          this.game.currentPlayer = game.currentPlayer,
-            this.game.playedCards = game.playedCards,
-            this.game.players = game.players,
-            this.game.stack = game.stack
+          this.game.currentPlayer = game.currentPlayer;
+            this.game.playedCards = game.playedCards;
+            this.game.players = game.players;
+            this.game.stack = game.stack;
+            this.game.pickCardAnimation = game.pickCardAnimation;
+            this.game.currentCard = game.currentCard;
         })
 
     });
@@ -68,18 +68,18 @@ export class GameComponent implements OnInit {
       this.openDialog();
     }
 
-    if (!this.pickCardAnimation && this.game.players.length > 0) {
-      this.currentCard = this.game.stack.pop();
+    if (!this.game.pickCardAnimation && this.game.players.length > 0) {
+      this.game.currentCard = this.game.stack.pop();
 
-      this.pickCardAnimation = true;
-      //this.saveGame();
+      this.game.pickCardAnimation = true;
+    
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-
+  this.saveGame();
       setTimeout(() => {
-        if (this.currentCard) {
-          this.game.playedCards.push(this.currentCard);
-           this.pickCardAnimation = false;
+        if (this.game.currentCard) {
+          this.game.playedCards.push(this.game.currentCard);
+           this.game.pickCardAnimation = false;
           this.saveGame();
 
         }

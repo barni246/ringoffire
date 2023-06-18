@@ -2,11 +2,10 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    // background-image: url('../../assets/img/board2.jpg');
-    // background-position: left center;
-    // background-size: cover;
-    // filter: brightness(0.9);
-    background-color: black;
+     background-image: url('../../assets/img/board5.jpg');
+     background-position: bottom;
+     filter: brightness(0.9);
+   // background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +24,7 @@
         border: 2px solid rgb(181, 66, 66);
         border-radius: 10px;
         filter: contrast(10);
+       
 
     }
 }
@@ -138,11 +138,10 @@
 
     .pin-bottom {
         position: absolute;
-        top: 50px;
-        right: 50px;
-        left: 40%;
-        height: 70%;
-        padding: 10px;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        height: 160px;
     }
 
 

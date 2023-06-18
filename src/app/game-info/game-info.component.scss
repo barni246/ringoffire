@@ -1,10 +1,9 @@
 $text-gray: rgba($color: #000000, $alpha: 0.5);
 
 .mat-card {
-    height: 50%;
     border-radius: 20px;
     color: $text-gray;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +13,7 @@ $text-gray: rgba($color: #000000, $alpha: 0.5);
     :last-child {
         padding-left: 35px;
         padding-right: 35px;
-        padding-top: 10px;
+        padding-top: 0px;
     }
 
 }
@@ -23,10 +22,32 @@ $text-gray: rgba($color: #000000, $alpha: 0.5);
     color: black;
 }
 
-.mat-mdc-card, .mat-card, .mcd-card {
+.mat-mdc-card,
+.mat-card,
+.mcd-card {
     border: 3px solid rgb(176, 4, 4) !important;
-    background-color:black;
+    background-color: black;
     color: red;
 }
 
 
+@media screen and (max-width: 500px) {
+   
+    .mat-card {
+        border-radius: 20px;
+        color: $text-gray;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+
+        & :first-child,
+        :last-child {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            font-size: 12px;
+        }
+    }
+}
