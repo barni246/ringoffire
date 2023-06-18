@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  
+
   game: Game;
   gameId: string;
 
@@ -42,11 +42,11 @@ export class GameComponent implements OnInit {
         .subscribe((game: any) => {
           console.log('Game update', game);
           this.game.currentPlayer = game.currentPlayer;
-            this.game.playedCards = game.playedCards;
-            this.game.players = game.players;
-            this.game.stack = game.stack;
-            this.game.pickCardAnimation = game.pickCardAnimation;
-            this.game.currentCard = game.currentCard;
+          this.game.playedCards = game.playedCards;
+          this.game.players = game.players;
+          this.game.stack = game.stack;
+          this.game.pickCardAnimation = game.pickCardAnimation;
+          this.game.currentCard = game.currentCard;
         })
 
     });
@@ -70,27 +70,33 @@ export class GameComponent implements OnInit {
 
     if (!this.game.pickCardAnimation && this.game.players.length > 0) {
       this.game.currentCard = this.game.stack.pop();
-
       this.game.pickCardAnimation = true;
-    
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-  this.saveGame();
+      this.saveGame();
       setTimeout(() => {
         if (this.game.currentCard) {
-          this.game.playedCards.push(this.game.currentCard);
-           this.game.pickCardAnimation = false;
-          this.saveGame();
-
+          if (this.game.stack.length == 0) {
+            this.fillStack();
+          } else {
+            this.game.playedCards.push(this.game.currentCard);
+            this.game.pickCardAnimation = false;
+            this.saveGame();
+          }
         }
-       
+
       }, 1000);
     }
   }
 
 
-
-
+  fillStack() {
+    this.game.stack = this.game.playedCards;
+    this.game.playedCards = [];
+    this.game.playedCards.push(this.game.currentCard);
+    this.game.pickCardAnimation = false;
+    this.saveGame();
+  }
 
 
   openDialog(): void {

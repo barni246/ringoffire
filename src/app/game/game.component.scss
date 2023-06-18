@@ -2,8 +2,9 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-     background-image: url('../../assets/img/board5.jpg');
-     background-position: bottom;
+     background-image: url('../../assets/img/board3.5.png');
+     background-position: center;
+     background-size: cover;
      filter: brightness(0.9);
    // background-color: black;
     display: flex;
@@ -81,6 +82,7 @@
     bottom: 50px;
     left: 50px;
     right: 220px;
+    height: 150px;
 }
 
 
@@ -114,13 +116,24 @@
     .player-position {
         left: 0;
     }
-}
 
-@media screen and (max-width: 600px) {
+    .pin-bottom {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 160px;
+        
+    }
+
+    .btn-add {
+        bottom: 20px;
+        right: 20px;
+    }
+
 
     .card-stack {
         position: relative;
-        bottom: 270px;
 
         img {
             width: 130px;
@@ -129,20 +142,5 @@
 
         }
     }
-
-    .field {
-
-        align-items: flex-end;
-
-    }
-
-    .pin-bottom {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        height: 160px;
-    }
-
-
 }
+

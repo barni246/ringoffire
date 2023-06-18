@@ -28,13 +28,14 @@ $text-gray: rgba($color: #000000, $alpha: 0.5);
     border: 3px solid rgb(176, 4, 4) !important;
     background-color: black;
     color: red;
+    height: 150px;
 }
 
 
-@media screen and (max-width: 500px) {
-   
+@media screen and (max-width: 1000px) {
+
     .mat-card {
-        border-radius: 20px;
+        border-radius: 0;
         color: $text-gray;
         color: white;
         display: flex;
@@ -44,10 +45,24 @@ $text-gray: rgba($color: #000000, $alpha: 0.5);
 
         & :first-child,
         :last-child {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 20px;
+            padding-right: 160px;
             padding-top: 0px;
             font-size: 12px;
+            line-height: 15px;
         }
+    }
+::-webkit-scrollbar {
+    display: none;
+}
+    .mat-mdc-card,
+    .mat-card,
+    .mcd-card {
+        height: 160px;
+        overflow: scroll;
+
+        border: none !important;
+        background-color: black;
+        color: red;
     }
 }
