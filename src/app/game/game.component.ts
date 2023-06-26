@@ -4,13 +4,7 @@ import { Game } from 'src/models/game';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-
-
-
-
 
 
 @Component({
@@ -32,10 +26,7 @@ export class GameComponent implements OnInit {
     this.newGame();
     this.route.params.subscribe((params) => {
       console.log('params', params);
-
-      // this.gameId = 'P1j0fyC9B9ZkKTPHCA6w';
       this.gameId = params['id'];
-
       this.firestore.collection('games')
         .doc(params['id'])
         .valueChanges()
@@ -101,7 +92,6 @@ export class GameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
@@ -117,7 +107,14 @@ export class GameComponent implements OnInit {
       .doc(this.gameId)
       .update(this.game.toJson())
   }
+editPlayer(playerId: number) {
+  console.log('Player edit', playerId);
+  
 }
+
+}
+
+
 
 
 

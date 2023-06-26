@@ -3,12 +3,18 @@
     border-top-left-radius: 45px;
     border-bottom-left-radius: 45px;
     background-color: rgb(50, 50, 50, 0.5);
-    background-color: black;
+    background-color: #805454;
     color: white;
     display: flex;
     align-items: center;
     border: 2px solid white;
+    cursor: pointer;
     filter: brightness(1.2);
+
+    &:hover {
+        filter: brightness(1.5);
+    }
+
     img {
         border-radius: 100%;
         width: 70px;
@@ -20,7 +26,7 @@
         margin-left: 20px;
         font-size: 25px;
     }
-    
+
 }
 
 .player-active {
@@ -40,18 +46,18 @@
         flex-direction: row-reverse;
         align-items: center;
         justify-content: flex-start;
-        
+
         img {
             border-radius: 100%;
             width: 60px;
             height: 60px;
             object-fit: cover;
         }
-    
+
         span {
             margin-right: 20px;
             font-size: 25px;
         }
-        
+
     }
 }
