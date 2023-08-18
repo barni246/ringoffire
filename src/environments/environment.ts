@@ -1,11 +1,10 @@
 export const environment = {
   firebase: {
-    projectId: 'bgringoffire',
-    appId: '1:847484956199:web:a3b9d70880f41bd0d5a802',
-    databaseURL: 'https://bgringoffire-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'bgringoffire.appspot.com',
-    apiKey: 'AIzaSyBJ3YMH2l9mUlDC8Uxv7UHrCJ2DIcHNJOo',
-    authDomain: 'bgringoffire.firebaseapp.com',
-    messagingSenderId: '847484956199',
+    projectId: 'ringoffire-7533a',
+    appId: '1:452796151031:web:e38640d6235263ee0e4ff2',
+    storageBucket: 'ringoffire-7533a.appspot.com',
+    apiKey: 'AIzaSyBsi0jpdCEurQkY2IoGEhZa44mqRDyOkwo',
+    authDomain: 'ringoffire-7533a.firebaseapp.com',
+    messagingSenderId: '452796151031',
   },
 };

@@ -20,9 +20,16 @@
           "bgtodolist"
         ]
       }
+    },
+    "ringoffire-7533a": {
+      "hosting": {
+        "ringoffire": [
+          "ringoffire-7533a"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "bgringoffire"
+    "default": "ringoffire-7533a"
   }
 }
